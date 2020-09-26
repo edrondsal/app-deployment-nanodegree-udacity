@@ -41,3 +41,5 @@ For more detail about each of these steps, see the project lesson [here](https:/
 ## Modify AWS-AUTH Configmap
 
 kubectl apply -f aws-auth-patch.yml
+
+aws configure --profile produser
