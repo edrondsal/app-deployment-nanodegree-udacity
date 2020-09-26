@@ -40,6 +40,12 @@ For more detail about each of these steps, see the project lesson [here](https:/
 
 ## Modify AWS-AUTH Configmap
 
-kubectl apply -f aws-auth-patch.yml
+kubectl get -n kube-system configmap/aws-auth -o yaml > aws-auth-cm.yml
+
+kubectl apply -f aws-auth-cm.yml
 
 aws configure --profile produser
+
+eksctl create iamidentitymapping --cluster simple-jwt-api --arn arn:aws:iam::348291871474:role/UdacityFlaskDeployCBKubectlRole --username build --group system:masters
+
+eksctl get iamidentitymapping --cluster simple-jwt-api
