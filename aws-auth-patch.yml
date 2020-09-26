@@ -9,15 +9,15 @@ metadata:
   uid: 7e42b20a-87a8-45e5-aa78-90e7a0b9fc9b
 data:
   mapRoles: |
-    - rolearn:  arn:aws:iam::348291871474:role/eksctl-simple-jwt-api-nodegroup-n-NodeInstanceRole-1H6M7W4U0TGN4
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn:  arn:aws:iam::348291871474:role/eksctl-simple-jwt-api-nodegroup-n-NodeInstanceRole-1H6M7W4U0TGN4
       username: system:node:{{EC2PrivateDNSName}}
-      groups:
-        - system:bootstrappers
-        - system:nodes
-    - rolearn: arn:aws:iam::348291871474:role/UdacityFlaskDeployCBKubectlRole
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::348291871474:role/UdacityFlaskDeployCBKubectlRole
       username: build
-      groups:
-        - system:masters
   mapUsers: |
     []
 
