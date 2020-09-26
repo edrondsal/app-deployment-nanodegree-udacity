@@ -40,8 +40,4 @@ For more detail about each of these steps, see the project lesson [here](https:/
 
 ## Modify AWS-AUTH Configmap
 
-ROLE="    - rolearn: arn:aws:iam::348291871474:role/UdacityFlaskDeployCBKubectlRole\n      username: build\n      groups:\n        - system:masters"
-
-kubectl get -n kube-system configmap/aws-auth -o yaml | "awk \"/mapRoles: \|/{print;print \'$ROLE\';next}1\" > aws-auth-patch.yml"
-
-kubectl patch configmap/aws-auth -n kube-system --patch "$(cat aws-auth-patch.yml)"
+kubectl apply -f aws-auth-patch.yml
